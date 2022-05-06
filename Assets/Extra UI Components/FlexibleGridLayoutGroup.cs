@@ -219,6 +219,9 @@ namespace Unity.UI // Namespace might need to be changed?
         var preferredShare = (missing / ideally) * reservedForPreference;
         var remainingShare = (remaining / totalFlexible) * flexible;
 
+        preferredShare = float.IsNaN(preferredShare) ? 0f : preferredShare;
+        remainingShare = float.IsNaN(remainingShare) ? 0f : remainingShare;
+
         var allocatedSize = requires + preferredShare + remainingShare;
         
         var offset = totalOffset;
